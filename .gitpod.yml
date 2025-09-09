@@ -1,9 +1,12 @@
 image: gitpod/workspace-full
 
 tasks:
- 	 - init: |
-     	 # Install npm dependencies
-      	npm install
+  - init: |
+      # Install npm dependencies
+      npm install
 
-      	# Run Playwright tests with Lambdatest Cloud
-     	 npx playwright test
+      #Install Lambdatest Cloud
+      npm install -g lambdatest-cypress-cli
+
+      # Run Cypress tests with Lambdatest Cloud
+      lambdatest-cypress run
