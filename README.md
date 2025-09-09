@@ -9,6 +9,6 @@ Specs file path: ./tests
 
 How To Run in Gitpod
 
-- Open new tab and enter https://gitpod.io/#<GitHubRepository>
+- Open new tab and enter https://gitpod.io/# + <GitHubRepository>
 - Click "Continue" button.
 - Gitpod Workspace will be opened and will install and execute commands indicated in the .gitpod.yml file and run the spec file(spec.ts) configured in the lambdatest-config.json.
