@@ -1,17 +1,8 @@
 import { defineConfig, devices } from '@playwright/test';
+import { ws } from './lambdatest-setup'; // import helper
 
-/**
- * Read environment variables from file.
- * https://github.com/motdotla/dotenv
- */
-// import dotenv from 'dotenv';
-// import path from 'path';
-// dotenv.config({ path: path.resolve(__dirname, '.env') });
-
-/**
- * See https://playwright.dev/docs/test-configuration.
- */
 export default defineConfig({
+  timeout: 180000, // 3 minutes
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -34,6 +25,7 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
+    /*
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
@@ -47,7 +39,7 @@ export default defineConfig({
     {
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
-    },
+    },*/
 
     /* Test against mobile viewports. */
     // {
@@ -58,6 +50,19 @@ export default defineConfig({
     //   name: 'Mobile Safari',
     //   use: { ...devices['iPhone 12'] },
     // },
+
+    {
+      name: 'ChromeWindows@LT',
+      use: { connectOptions: { wsEndpoint: ws('Chrome', 'Windows 10') } }
+    },
+    {
+      name: 'MSEdgeMacOS@LT',
+      use: { connectOptions: { wsEndpoint: ws('MicrosoftEdge', 'macOS Monterey') } }
+    },
+    {
+      name: 'ChromeAndroid@LT',
+      use: { ...devices['Pixel 5'], connectOptions: { wsEndpoint: ws('Chrome', 'Windows 10') } }
+    },
 
     /* Test against branded browsers. */
     // {
