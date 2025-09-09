@@ -6,4 +6,4 @@ tasks:
       npm install
 
       # Run Playwright tests with Lambdatest Cloud
-      npx playwright run
+      npx playwright test
