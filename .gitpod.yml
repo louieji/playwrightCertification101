@@ -5,8 +5,5 @@ tasks:
       # Install npm dependencies
       npm install
 
-      #Install Lambdatest Cloud
-      npm install -g lambdatest-cypress-cli
-
-      # Run Cypress tests with Lambdatest Cloud
-      lambdatest-cypress run
+      # Run Playwright tests with Lambdatest Cloud
+      npx playwright run
